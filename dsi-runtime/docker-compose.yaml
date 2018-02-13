@@ -2,20 +2,17 @@ version: '3'
 
 services:
         dsi-runtime:
-                build:
-                        context: build
-                        args:
-                                baseimg: ubuntu
                 image: dsi-runtime
+                ports:
+                        - "${HTTP_PORT}:9080"
+                        - "${HTTPS_PORT}:9443"
         dsi-runtime-openjdk:
-                build:
-                        context: build
-                        args:
-                                baseimg: openjdk:8
                 image: dsi-runtime-openjdk
+                ports:
+                        - "${HTTP_PORT}:9080"
+                        - "${HTTPS_PORT}:9443"
         dsi-runtime-ibmjava:
-                build:
-                        context: build
-                        args:
-                                baseimg: ibmjava:latest
                 image: dsi-runtime-ibmjava
+                ports:
+                        - "${HTTP_PORT}:9080"
+                        - "${HTTPS_PORT}:9443"
