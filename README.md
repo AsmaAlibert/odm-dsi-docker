@@ -81,6 +81,7 @@ When DSI is started, the output ends with the following lines:
 ```
 
 REST APIs are available by default on port 9080 with HTTP and on port 9443 with HTTPS.
+To change host ports, change HTTP_PORT and HTTPS_PORT variables in the .env file.
 
 ## Test a DSI Runtime running in Docker
 
