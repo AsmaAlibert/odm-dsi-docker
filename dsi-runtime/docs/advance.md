@@ -70,17 +70,13 @@ docker run -p9443:9443 dsi-runtime-simple-sol
 Depending on your needs, you might want to use another DSI configuration.
 
 It is possible to add multiple DSI configurations to the same Docker image.
-Each configuration has to be added in a separate sub-directory under the directory `<DSI_DOCKER_GIT>/templates/servers`.
+To do it, set the environment variable `DSI_TEMPLATES` to the path where `servers` dir containing templates is.
 
-To add a new DSI configuration in the Docker image:
- * Copy the files in `<DSI_DOCKER_GIT>/templates/servers/dsi-runtime`
-   to a new directory, for example `<DSI_DOCKER_GIT>/templates/servers/my-dsi-template`
- * Edit the files in `<DSI_DOCKER_GIT>/templates/servers/my-dsi-template`.
- * Rebuild the Docker image using the script `<DSI_DOCKER_GIT>/builds.sh`.
-
-When running the DSI Docker container, the name of the DSI configuration must
-be passed as the first argument of the startup script:
-
+For example, if the path to the `servers` dir is home/example
 ```sh
-docker run -p9443:9443 --name my-dsi-runtime /root/start.sh my-dsi-template
+export DSI_TEMPLATES=home/example
 ```
+
+Then rebuild the Docker image using the script `<DSI_DOCKER_GIT>/build.sh`.
+
+Then, to run the single DSI runtime with a template, edit the `.env` file to define the variable `DSI_TEMPLATE` with the name of the template and simply run `docker-compose up dsi-runtime`.
