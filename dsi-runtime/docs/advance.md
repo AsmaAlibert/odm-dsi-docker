@@ -70,9 +70,9 @@ docker run -p9443:9443 dsi-runtime-simple-sol
 Depending on your needs, you might want to use another DSI configuration.
 
 It is possible to add multiple DSI configurations to the same Docker image.
-To do it, set the environment variable `DSI_TEMPLATES` to the path where `servers` dir containing templates is.
+To do this, set the environment variable `DSI_TEMPLATES` to the path where the `servers` directory, which contains the templates, is located.
 
-For example, if the path to the `servers` dir is home/example
+For example, if the templates are in home/example/servers
 ```sh
 export DSI_TEMPLATES=home/example
 ```
