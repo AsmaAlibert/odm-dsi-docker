@@ -9,6 +9,8 @@ services:
                 command: ["/root/start.sh", $DSI_TEMPLATE]
                 environment:
                         - LOGGING_TRACE_SPECIFICATION=$LOGGING_TRACE_SPECIFICATION
+                volumes:
+                        - volume-templates:/opt/dsi/runtime/wlp/templates/servers
 
         dsi-runtime-openjdk:
                 image: dsi-runtime-openjdk
@@ -18,6 +20,8 @@ services:
                 command: ["/root/start.sh", $DSI_TEMPLATE]
                 environment:
                         - LOGGING_TRACE_SPECIFICATION=$LOGGING_TRACE_SPECIFICATION
+                volumes:
+                        - volume-templates:/opt/dsi/runtime/wlp/templates/servers
 
         dsi-runtime-ibmjava:
                 image: dsi-runtime-ibmjava
@@ -27,3 +31,8 @@ services:
                 command: ["/root/start.sh", $DSI_TEMPLATE]
                 environment:
                         - LOGGING_TRACE_SPECIFICATION=$LOGGING_TRACE_SPECIFICATION
+                volumes:
+                        - volume-templates:/opt/dsi/runtime/wlp/templates/servers
+
+volumes:
+        volume-templates:
