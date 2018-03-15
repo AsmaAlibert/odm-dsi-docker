@@ -98,7 +98,7 @@ Then rebuild the Docker image using the script `<DSI_DOCKER_GIT>/build.sh`.
 
 Then, to run the single DSI runtime with a template, edit the `.env` file to define the variable `DSI_TEMPLATE` with the name of the template and simply run `docker-compose up dsi-runtime`.
 
-### Binding a volume containing the template.
+### Binding a volume containing the templates.
 
 Put your templates in the named volume `dsiruntime_volume-templates`.
 
