@@ -5,13 +5,13 @@
         <feature>appSecurity-2.0</feature>
         <feature>restConnector-1.0</feature>
         <feature>ssl-1.0</feature>
-        <feature>ia:iaRuntime-8.9.1</feature>
-        <feature>ia:iaDispatcher-8.9.1</feature>
-        <feature>ia:iaAnalytics-8.9.1</feature>
+        <feature>ia:iaRuntime-_DSI_VERSION_</feature>
+        <feature>ia:iaDispatcher-_DSI_VERSION_</feature>
+        <feature>ia:iaAnalytics-_DSI_VERSION_</feature>
     </featureManager>
 
     <logging
-        traceSpecification="com.ibm.ia.*=fine:com.ibm.rules.*=info:*=info"
+        traceSpecification="com.ibm.ia.*=info:com.ibm.rules.*=info:*=info"
         maxFiles="5" />
 
     <httpEndpoint

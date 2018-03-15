@@ -6,7 +6,7 @@ DSI containers can be customized with specific parameters specified in `.env` fi
 
 Customizable variables:
  * `LOGGING_TRACE_SPECIFICATION` sets logging specification in `server.xml` of container. See specific documentation about Liberty logging and trace [here](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_8.5.5/com.ibm.websphere.wlp.doc/ae/rwlp_logging.html).
- 
+
 ## Persist deployed solutions
 
 As docker containers are stateless, deployed solutions in containers are not persisted.
@@ -71,7 +71,7 @@ Depending on your needs, you might want to use another DSI configuration.
 It is possible to add multiple DSI configurations to the same Docker image.
 There are 3 ways to do this:
 
-1. Using dsi-runtime base image.
+### Using dsi-runtime base image.
 
 After having built dsi-runtime image, create another image based on dsi-runtime that copy the templates in /opt/dsi/runtime/wlp/templates/servers.
 
@@ -85,7 +85,7 @@ CMD /root/start.sh
 Build the image using docker
 docker build -t myImage .
 
-2. Setting DSI_TEMPLATES env when building the dsi-runtime image.
+### Setting `DSI_TEMPLATES` env when building the dsi-runtime image.
 
 To do this, set the environment variable `DSI_TEMPLATES` to the path where the `servers` directory, which contains the templates, is located.
 
@@ -98,7 +98,8 @@ Then rebuild the Docker image using the script `<DSI_DOCKER_GIT>/build.sh`.
 
 Then, to run the single DSI runtime with a template, edit the `.env` file to define the variable `DSI_TEMPLATE` with the name of the template and simply run `docker-compose up dsi-runtime`.
 
-3. Binding a volume containing the template.
+### Binding a volume containing the template.
 
 Put your templates in the named volume `dsiruntime_volume-templates`.
+
 Then, to run the single DSI runtime with a template, edit the `.env` file to define the variable `DSI_TEMPLATE` with the name of the template and simply run `docker-compose up dsi-runtime`.

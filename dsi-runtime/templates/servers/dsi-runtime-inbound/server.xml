@@ -3,14 +3,14 @@
         <feature>appSecurity-2.0</feature>
         <feature>restConnector-1.0</feature>
         <feature>ssl-1.0</feature>
-        <feature>ia:iaConnectivityInboundHTTP-8.9.1</feature>
+        <feature>ia:iaConnectivityInboundHTTP-_DSI_VERSION_</feature>
     </featureManager>
 
     <ia_connectivity
         catalogServerEndpoint="${ia.bootstrapEndpoints}" />
 
     <logging
-        traceSpecification="com.ibm.ia.*=fine:com.ibm.rules.*=info:*=info"
+        traceSpecification="com.ibm.ia.*=info:com.ibm.rules.*=info:*=info"
         maxFiles="5" />
 
     <httpEndpoint
