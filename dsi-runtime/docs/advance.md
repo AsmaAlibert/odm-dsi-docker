@@ -71,7 +71,7 @@ Depending on your needs, you might want to use another DSI configuration.
 It is possible to add multiple DSI configurations to the same Docker image.
 There are 3 ways to do this:
 
-### Add custom templates into the dsi-runtime image.
+### Add custom templates into the dsi-runtime image
 
 To do this, set the environment variable `DSI_TEMPLATES` to the path where the `servers` directory, which contains the templates, is located.
 
@@ -84,7 +84,7 @@ Then rebuild the Docker image using the script `<DSI_DOCKER_GIT>/build.sh`.
 
 Then, to run the single DSI runtime with a template, edit the `.env` file to define the variable `DSI_TEMPLATE` with the name of the template and simply run `docker-compose up dsi-runtime`.
 
-### Add custom templates into a specific image based on the dsi-runtime image.
+### Add custom templates into a specific image based on the dsi-runtime image
 
 After having built dsi-runtime image, create another image based on dsi-runtime that copy the templates in /opt/dsi/runtime/wlp/templates/servers.
 
@@ -98,7 +98,7 @@ CMD /root/start.sh
 Build the image using docker
 docker build -t myImage .
 
-### Pass custom templates to a dsi-runtime docker container.
+### Pass custom templates to a dsi-runtime docker container
 
 Put your templates in the named volume `dsiruntime_volume-templates`.
 
