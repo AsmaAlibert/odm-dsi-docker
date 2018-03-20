@@ -11,6 +11,8 @@ services:
                         - LOGGING_TRACE_SPECIFICATION=$LOGGING_TRACE_SPECIFICATION
                 volumes:
                         - volume-templates:/opt/dsi/runtime/wlp/templates/servers
+                        - volume-solutions:/opt/dsi/runtime/wlp
 
 volumes:
         volume-templates:
+        volume-solutions:
