@@ -81,6 +81,11 @@ if [ ! -f "$SRV_XML" ]; then
                 echo "Update DSI_PARTITIONS_COUNT to $DSI_PARTITIONS_COUNT"
                 sed -i "s/numberOfPartitions=\"[0-9]*\"/numberOfPartitions=\"$DSI_PARTITIONS_COUNT\"/g" "$GRID_DEPLOYMENT"
         fi
+
+        if [ "$MAX_SYNC_REPLICAS" !=  "" ] ; then
+                echo updating maxSyncReplicas with "$MAX_SYNC_REPLICAS"
+                sed -i "s/maxSyncReplicas=\".*\"/maxSyncReplicas=\"$MAX_SYNC_REPLICAS\"/g" "$GRID_DEPLOYMENT"
+        fi
 else
         echo "$SRV_XML already exist"
 fi
@@ -136,4 +141,5 @@ if [ "$DSI_PASSWORD" !=  "" ] ; then
         echo updating DSI password with "$DSI_PASSWORD"
         sed -i "s/ia.test.password=.*$/ia.test.password=$DSI_PASSWORD/" "$BOOTSTRAP_FILE"
 fi
+
 /opt/dsi/runtime/wlp/bin/server run "$DSI_TEMPLATE"
