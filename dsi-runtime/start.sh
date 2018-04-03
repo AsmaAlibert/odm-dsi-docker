@@ -82,14 +82,14 @@ if [ ! -f "$SRV_XML" ]; then
                 sed -i "s/numberOfPartitions=\"[0-9]*\"/numberOfPartitions=\"$DSI_PARTITIONS_COUNT\"/g" "$GRID_DEPLOYMENT"
         fi
 
-        if [ ! -z "$MAX_SYNC_REPLICAS" ] ; then
+        if [[ ! -z "$MAX_SYNC_REPLICAS" && -f "$GRID_DEPLOYMENT" ]] ; then
                 echo "Update MAX_SYNC_REPLICAS to $MAX_SYNC_REPLICAS"
-                sed -i "s/maxSyncReplicas=\".*\"/maxSyncReplicas=\"$MAX_SYNC_REPLICAS\"/g" "$GRID_DEPLOYMENT"
+                sed -i "s/maxSyncReplicas=\"[0-9]*\"/maxSyncReplicas=\"$MAX_SYNC_REPLICAS\"/g" "$GRID_DEPLOYMENT"
         fi
 
-        if [ ! -z "$MAX_ASYNC_REPLICAS" ] ; then
+        if [[ ! -z "$MAX_ASYNC_REPLICAS" && -f "$GRID_DEPLOYMENT" ]] ; then
                 echo "Update MAX_ASYNC_REPLICAS to $MAX_ASYNC_REPLICAS"
-                sed -i "s/maxAsyncReplicas=\".*\"/maxAsyncReplicas=\"$MAX_ASYNC_REPLICAS\"/g" "$GRID_DEPLOYMENT"
+                sed -i "s/maxAsyncReplicas=\"[0-9]*\"/maxAsyncReplicas=\"$MAX_ASYNC_REPLICAS\"/g" "$GRID_DEPLOYMENT"
         fi
 else
         echo "$SRV_XML already exist"
